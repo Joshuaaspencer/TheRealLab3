@@ -1,0 +1,49 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools" android:layout_width="match_parent"
+    android:layout_height="match_parent" android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:paddingBottom="@dimen/activity_vertical_margin" tools:context=".MainActivity">
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/list_view"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true">
+        <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal" >
+        <TextView
+            android:layout_width= "wrap_content"
+            android:layout_height= "wrap_content"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:text= "Profile View:"
+            android:id="@+id/Profile_View"
+            android:layout_alignParentTop="true"
+            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true" />
+
+        <ImageView
+            android:layout_width="100pt"
+            android:layout_height="100pt"
+            android:layout_centerInParent="true"
+            android:id="@+id/Profile_Picture"
+            android:src="@drawable/Photo"
+            android:onClick="changePicture"/>
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/profile_button_change"
+            android:text="@string/button_change"
+            android:onClick=""
+            android:layout_alignRight="@id/Profile_Picture"
+            android:layout_al="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+</RelativeLayout>
