@@ -33,16 +33,14 @@
             android:layout_height="100pt"
             android:layout_centerInParent="true"
             android:id="@+id/Profile_Picture"
-            android:src="@drawable/Photo"
+            android:src="@drawable/photo"
             android:onClick="changePicture"/>
         <Button
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:id="@+id/profile_button_change"
             android:text="@string/button_change"
-            android:onClick=""
-            android:layout_alignRight="@id/Profile_Picture"
-            android:layout_al="true"/>
+            android:onClick=""/>
         </RelativeLayout>
     </LinearLayout>
 
