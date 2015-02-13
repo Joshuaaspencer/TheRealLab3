@@ -1,9 +1,11 @@
 package com.example.joshuaspencer.lab3act;
 import android.app.Activity;
+import android.content.ActivityNotFoundException;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.os.Bundle;
 import android.view.Menu;
@@ -11,6 +13,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 
+import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -38,7 +41,7 @@ public class MainActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        mImageView = (ImageView) findViewById(R.id.Profile_Picture);
+        mImageView = (ImageView) findViewById(R.id.profile_picture);
 
         if(savedInstanceState != null)
            imageCaptureUri = savedInstanceState.getParcelable(URI_INSTANCE_STATE_KEY);
@@ -59,12 +62,44 @@ public class MainActivity extends Activity {
             return;
         switch (requestCode){
             case REQUEST_CODE_TAKE_FROM_CAMERA:
-                //cropPhoto(); //Send picture taken to be cropped
+                cropImage(); //Send picture taken to be cropped
                 break;
             case REQUEST_CODE_CROP_PHOTO:
+                Bundle extras = data.getExtras();
+                if (extras != null) {
+                    mImageView.setImageBitmap((Bitmap) extras.getParcelable("data"));
+                }
+
+                //delete temp image before crop
+                File f = new File(imageCaptureUri.getPath());
+                if (f.exists())
+                    f.delete();
                 break;
         }
     }
+
+
+/**********On Button Clicks************************************************************************/
+
+    public void onChangePictureClick(View view){
+        Intent intent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+
+        //constructing temporary image path
+        imageCaptureUri = Uri.fromFile(new File(Environment.getExternalStorageDirectory(), "temp_"
+                                                + String.valueOf(System.currentTimeMillis())
+                                                + ".jpg"));
+        intent.putExtra(MediaStore.EXTRA_OUTPUT, imageCaptureUri);
+        intent.putExtra("return-data", true);
+
+        try {
+            startActivityForResult(intent, REQUEST_CODE_TAKE_FROM_CAMERA);
+        }
+        catch (ActivityNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
+
+/**********Private Helpers*************************************************************************/
 
     private void loadSnap() {
         // Load profile photo from internal storage
@@ -94,12 +129,26 @@ public class MainActivity extends Activity {
             ioe.printStackTrace();
         }
     }
-/*on button clicks*/
 
-    /*public void onChangePictureClick(View view){
-    }*/
+    private void cropImage() {
+        // Use existing crop activity.
+        Intent intent = new Intent("com.android.camera.action.CROP");
+        intent.setDataAndType(imageCaptureUri, IMAGE_UNSPECIFIED);
 
-/*Private Helpers*/
+        // Specify image size
+        intent.putExtra("outputX", 100);
+        intent.putExtra("outputY", 100);
+
+        // Specify aspect ratio, 1:1
+        intent.putExtra("aspectX", 1);
+        intent.putExtra("aspectY", 1);
+        intent.putExtra("scale", true);
+        intent.putExtra("return-data", true);
+        // REQUEST_CODE_CROP_PHOTO is an integer tag you defined to
+        // identify the activity in onActivityResult() when it returns
+        startActivityForResult(intent, REQUEST_CODE_CROP_PHOTO);
+    }
+
 }
 
 
