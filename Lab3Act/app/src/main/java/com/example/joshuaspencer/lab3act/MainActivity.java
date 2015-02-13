@@ -45,7 +45,8 @@ public class MainActivity extends Activity {
     private EditText userName;
     private EditText userEmail;
     private EditText userPhoneNumber;
-    private RadioGroup userGender;
+    private RadioButton userMale;
+    private RadioButton userFemale;
     private EditText userClass;
     private EditText userMajor;
 
@@ -63,9 +64,18 @@ public class MainActivity extends Activity {
         userName = (EditText) findViewById(R.id.user_name_edit);
         userEmail = (EditText) findViewById(R.id.user_email_edit);
         userPhoneNumber = (EditText) findViewById(R.id.user_phone_number);
-        userGender = (RadioGroup) findViewById(R.id.user_gender_edit);
+        userMale = (RadioButton) findViewById(R.id.radio_ninjas);
+        userFemale = (RadioButton) findViewById(R.id.radio_pirates);
         userClass = (EditText) findViewById(R.id.user_class_edit);
         userMajor = (EditText) findViewById(R.id.user_major_edit);
+
+        userName.setText(settings.getString("Name","Enter your name here:"));
+        userEmail.setText(settings.getString("Email","Your email"));
+        userPhoneNumber.setText(settings.getString("Phone","Your phone"));
+        userMale.setChecked(settings.getBoolean("Male",true));
+        userFemale.setChecked(settings.getBoolean("Female",false));
+        userClass.setText(settings.getString("ClassYear","e.g., 2012"));
+        userMajor.setText(settings.getString("Major","Your major here"));
 
         if(savedInstanceState != null)
            imageCaptureUri = savedInstanceState.getParcelable(URI_INSTANCE_STATE_KEY);
@@ -133,7 +143,9 @@ public class MainActivity extends Activity {
         editor.putString("Email",userEmail.getText().toString());
         editor.putString("Phone",userPhoneNumber.getText().toString());
 
-        //Radio button save
+        //Radio buttons save
+        editor.putBoolean("Male",userMale.isChecked());
+        editor.putBoolean("Female",userFemale.isChecked());
 
         editor.putString("ClassYear",userClass.getText().toString());
         editor.putString("Major",userMajor.getText().toString());
