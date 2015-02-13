@@ -23,5 +23,6 @@
     <string name="change">Change</string>
     <string name="save">Save</string>
     <string name="cancel">Cancel</string>
+    <string name="profile_photo_file_name">photo</string>
 
 </resources>
