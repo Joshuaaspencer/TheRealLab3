@@ -22,7 +22,7 @@
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text= "Profile View:"
+                android:text= "@string/profile_view"
                 android:id="@+id/Profile_View"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -62,7 +62,7 @@
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text= "Name:"
+                android:text= "@string/name"
                 android:id="@+id/name_text_view"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -72,7 +72,7 @@
                 android:layout_below="@id/name_text_view"
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
-                android:hint="Enter your name here:"
+                android:hint="@string/enter_name"
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
                 />
@@ -96,7 +96,7 @@
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text= "Email:"
+                android:text= "@string/email"
                 android:id="@+id/email_text_view"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -107,7 +107,7 @@
                 android:layout_below="@id/email_text_view"
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
-                android:hint="Your email"
+                android:hint="@string/your_email"
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
                 />
@@ -131,7 +131,7 @@
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text= "Phone:"
+                android:text= "@string/phone"
                 android:id="@+id/phone_text_view"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -142,7 +142,7 @@
                 android:layout_below="@id/phone_text_view"
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
-                android:hint="Your phone"
+                android:hint="@string/your_phone"
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
                 />
@@ -166,7 +166,7 @@
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text= "Gender:"
+                android:text= "@string/gender"
                 android:id="@+id/gender_text_view"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -179,12 +179,12 @@
                 <RadioButton android:id="@+id/radio_pirates"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Female"
+                    android:text="@string/female"
                     android:onClick="onRadioButtonClicked"/>
                 <RadioButton android:id="@+id/radio_ninjas"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="Male"
+                    android:text="@string/male"
                     android:onClick="onRadioButtonClicked"/>
             </RadioGroup>
         </RelativeLayout>
@@ -207,7 +207,7 @@
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text= "Class:"
+                android:text= "@string/class_"
                 android:id="@+id/class_text_view"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -218,7 +218,7 @@
                 android:layout_below="@id/class_text_view"
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
-                android:hint="e.g., 2012"
+                android:hint="@string/class_hint"
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
                 />
@@ -241,7 +241,7 @@
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
                 android:textAppearance="?android:attr/textAppearanceMedium"
-                android:text= "Major:"
+                android:text= "@string/major"
                 android:id="@+id/major_text_view"
                 android:layout_alignParentTop="true"
                 android:layout_alignParentLeft="true"
@@ -252,7 +252,7 @@
                 android:layout_below="@id/major_text_view"
                 android:layout_width= "wrap_content"
                 android:layout_height= "wrap_content"
-                android:hint="Your major here"
+                android:hint="@string/major_hint"
                 android:layout_alignParentTop="true"
                 android:layout_centerInParent="true"
                 />
@@ -275,14 +275,14 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/profile_button_save"
-                android:text="@string/button_change"
+                android:text="@string/change"
 
                 android:layout_centerVertical="true"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/profile_button_cancel"
-                android:text="@string/button_change"
+                android:text="@string/change"
 
                 android:layout_centerVertical="true"/>
         </RelativeLayout>
