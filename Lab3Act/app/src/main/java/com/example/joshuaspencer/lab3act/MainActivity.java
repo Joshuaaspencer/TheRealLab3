@@ -26,32 +26,25 @@ import java.io.IOException;
 public class MainActivity extends Activity {
     public static final int REQUEST_CODE_TAKE_FROM_CAMERA = 0;
     public static final int REQUEST_CODE_CROP_PHOTO = 2;
+
     private static final String IMAGE_UNSPECIFIED = "image/*";
     private static final String URI_INSTANCE_STATE_KEY = "saved_uri";
+
     private Uri imageCaptureUri;
     private ImageView mImageView;
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-    }
 
-    /*
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        //Its Doug I thonk we're going to need a URI for both the picture data and the
-        //Input data just because of the way the load snap stuff seems to work
-        mImageView = (ImageView) findViewById(R.id.imageProfile);
+        mImageView = (ImageView) findViewById(R.id.Profile_Picture);
 
         if(savedInstanceState != null)
-            mImageCaptureUri = savedInstanceState.getParcelable(URI_INSTANCE_STATE_KEY);
+           imageCaptureUri = savedInstanceState.getParcelable(URI_INSTANCE_STATE_KEY);
 
-        //loadSnap();
+        loadSnap();
     }
-    */
 
     @Override
     protected void onSaveInstanceState(Bundle outState) {
@@ -59,6 +52,7 @@ public class MainActivity extends Activity {
         //Saving image uri before activity goes into bground
         outState.putParcelable(URI_INSTANCE_STATE_KEY, imageCaptureUri);
     }
+
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if(resultCode != RESULT_OK)
@@ -73,8 +67,6 @@ public class MainActivity extends Activity {
     }
 
     private void loadSnap() {
-
-
         // Load profile photo from internal storage
         try {
             FileInputStream fis = openFileInput(getString(R.string.profile_photo_file_name));
@@ -86,8 +78,8 @@ public class MainActivity extends Activity {
             mImageView.setImageResource(R.drawable.photo);
         }
     }
-    private void saveSnap() {
 
+    private void saveSnap() {
         // Commit all the changes into preference file
         // Save profile image into internal storage.
         mImageView.buildDrawingCache();
