@@ -18,7 +18,7 @@ import java.io.IOException;
 /**
  * Lab 3
  * Douglas Applegate
- * Nick Love(is cool)
+ * Nick Love
  * Dave McVicar
  * Joshua Spencer
  */
