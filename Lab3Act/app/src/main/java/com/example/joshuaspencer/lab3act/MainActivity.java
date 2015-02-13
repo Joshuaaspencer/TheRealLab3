@@ -2,6 +2,7 @@ package com.example.joshuaspencer.lab3act;
 import android.app.Activity;
 import android.content.ActivityNotFoundException;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.net.Uri;
@@ -11,7 +12,10 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.RadioButton;
+import android.widget.RadioGroup;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -36,12 +40,32 @@ public class MainActivity extends Activity {
     private Uri imageCaptureUri;
     private ImageView mImageView;
 
+    public static final String PREFS_NAME = "MyPrefsFile";
+
+    private EditText userName;
+    private EditText userEmail;
+    private EditText userPhoneNumber;
+    private RadioGroup userGender;
+    private EditText userClass;
+    private EditText userMajor;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        // Restore preferences
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+
+
         mImageView = (ImageView) findViewById(R.id.profile_picture);
+
+        userName = (EditText) findViewById(R.id.user_name_edit);
+        userEmail = (EditText) findViewById(R.id.user_email_edit);
+        userPhoneNumber = (EditText) findViewById(R.id.user_phone_number);
+        userGender = (RadioGroup) findViewById(R.id.user_gender_edit);
+        userClass = (EditText) findViewById(R.id.user_class_edit);
+        userMajor = (EditText) findViewById(R.id.user_major_edit);
 
         if(savedInstanceState != null)
            imageCaptureUri = savedInstanceState.getParcelable(URI_INSTANCE_STATE_KEY);
@@ -97,6 +121,23 @@ public class MainActivity extends Activity {
         catch (ActivityNotFoundException e) {
             e.printStackTrace();
         }
+    }
+
+    public void onSaveButtonClick(View view){
+        saveSnap();
+
+        SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
+        SharedPreferences.Editor editor = settings.edit();
+
+        editor.putString("Name",userName.getText().toString());
+        editor.putString("Email",userEmail.getText().toString());
+        editor.putString("Phone",userPhoneNumber.getText().toString());
+
+        //Radio button save
+
+        editor.putString("ClassYear",userClass.getText().toString());
+        editor.putString("Major",userMajor.getText().toString());
+
     }
 
 /**********Private Helpers*************************************************************************/

@@ -48,6 +48,7 @@
             android:layout_width= "fill_parent"
             android:layout_height= "wrap_content"
             android:hint="@string/enter_name"
+            android:id="@+id/user_name_edit"
             />
         <TextView
             android:layout_width= "wrap_content"
@@ -60,6 +61,7 @@
             android:layout_width= "fill_parent"
             android:layout_height= "wrap_content"
             android:hint="@string/your_email"
+            android:id="@+id/user_email_edit"
             />
         <TextView
             android:layout_width= "wrap_content"
@@ -72,6 +74,7 @@
             android:layout_width= "fill_parent"
             android:layout_height= "wrap_content"
             android:hint="@string/your_phone"
+            android:id="@+id/user_phone_number"
             />
         <TextView
             android:layout_width= "wrap_content"
@@ -84,7 +87,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="20dp"
-            android:orientation="horizontal">
+            android:orientation="horizontal"
+            android:id="@+id/user_gender_edit">
             <RadioButton android:id="@+id/radio_pirates"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -108,6 +112,7 @@
             android:layout_width= "fill_parent"
             android:layout_height= "wrap_content"
             android:hint="@string/class_hint"
+            android:id="@+id/user_class_edit"
             />
         <TextView
             android:layout_width= "wrap_content"
@@ -119,6 +124,7 @@
             android:layout_width= "fill_parent"
             android:layout_height= "wrap_content"
             android:hint="@string/major_hint"
+            android:id="@+id/user_major_edit"
             />
         <RelativeLayout
             android:layout_gravity="center_horizontal"
@@ -128,7 +134,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:id="@+id/profile_button_save"
-                android:text="@string/save"/>
+                android:text="@string/save"
+                android:onClick="onSaveButtonClick"/>
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
