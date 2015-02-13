@@ -7,7 +7,7 @@
 
     <LinearLayout
         android:orientation="horizontal"
-        android:id="@+id/list_view"
+        android:id="@+id/linear_layout1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
@@ -18,30 +18,276 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal" >
-        <TextView
-            android:layout_width= "wrap_content"
-            android:layout_height= "wrap_content"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:text= "Profile View:"
-            android:id="@+id/Profile_View"
-            android:layout_alignParentTop="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true" />
+            <TextView
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text= "Profile View:"
+                android:id="@+id/Profile_View"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
 
-        <ImageView
-            android:layout_width="100pt"
-            android:layout_height="100pt"
-            android:layout_centerInParent="true"
-            android:id="@+id/Profile_Picture"
-            android:src="@drawable/photo"
-            android:onClick="changePicture"/>
-        <Button
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/profile_button_change"
-            android:text="@string/button_change"
-            android:onClick=""/>
+            <ImageView
+                android:layout_width="75pt"
+                android:layout_height="75pt"
+                android:layout_centerInParent="true"
+                android:id="@+id/Profile_Picture"
+                android:src="@drawable/photo"
+                />
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_button_change"
+                android:text="@string/button_change"
+
+                android:layout_toRightOf="@id/Profile_Picture"
+                android:layout_centerVertical="true"/>
         </RelativeLayout>
     </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/linear_layout1">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text= "Name:"
+                android:id="@+id/name_text_view"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:layout_margin="10pt"
+                android:layout_below="@id/name_text_view"
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:hint="Enter your name here:"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/linear_layout2">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text= "Email:"
+                android:id="@+id/email_text_view"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:inputType="textEmailAddress"
+                android:layout_margin="10pt"
+                android:layout_below="@id/email_text_view"
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:hint="Your email"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/linear_layout3">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text= "Phone:"
+                android:id="@+id/phone_text_view"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:phoneNumber="true"
+                android:layout_margin="10pt"
+                android:layout_below="@id/phone_text_view"
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:hint="Your phone"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout5"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/linear_layout4">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text= "Gender:"
+                android:id="@+id/gender_text_view"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <RadioGroup xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="10pt">
+                <RadioButton android:id="@+id/radio_pirates"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Female"
+                    android:onClick="onRadioButtonClicked"/>
+                <RadioButton android:id="@+id/radio_ninjas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Male"
+                    android:onClick="onRadioButtonClicked"/>
+            </RadioGroup>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout6"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/linear_layout5">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text= "Class:"
+                android:id="@+id/class_text_view"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:phoneNumber="true"
+                android:layout_margin="10pt"
+                android:layout_below="@id/class_text_view"
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:hint="e.g., 2012"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout7"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/linear_layout6">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <TextView
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:text= "Major:"
+                android:id="@+id/major_text_view"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+            <EditText
+                android:phoneNumber="true"
+                android:layout_margin="10pt"
+                android:layout_below="@id/major_text_view"
+                android:layout_width= "wrap_content"
+                android:layout_height= "wrap_content"
+                android:hint="Your major here"
+                android:layout_alignParentTop="true"
+                android:layout_centerInParent="true"
+                />
+        </RelativeLayout>
+    </LinearLayout>
+    <LinearLayout
+        android:orientation="horizontal"
+        android:id="@+id/linear_layout8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@id/linear_layout7">
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_button_save"
+                android:text="@string/button_change"
+
+                android:layout_centerVertical="true"/>
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/profile_button_cancel"
+                android:text="@string/button_change"
+
+                android:layout_centerVertical="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+
+
 
 </RelativeLayout>
