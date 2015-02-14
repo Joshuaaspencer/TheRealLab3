@@ -40,7 +40,7 @@ public class MainActivity extends Activity {
     private Uri imageCaptureUri;
     private ImageView mImageView;
 
-    public static final String PREFS_NAME = "MyPrefsFile";
+    public static final String PREFS_NAME = "com.example.joshuaspencer.lab3act";
 
     private EditText userName;
     private EditText userEmail;
@@ -69,13 +69,13 @@ public class MainActivity extends Activity {
         userClass = (EditText) findViewById(R.id.user_class_edit);
         userMajor = (EditText) findViewById(R.id.user_major_edit);
 
-        userName.setText(settings.getString("Name","Enter your name here:"));
-        userEmail.setText(settings.getString("Email","Your email"));
-        userPhoneNumber.setText(settings.getString("Phone","Your phone"));
+        userName.setText(settings.getString("Name",""));
+        userEmail.setText(settings.getString("Email",""));
+        userPhoneNumber.setText(settings.getString("Phone",""));
         userMale.setChecked(settings.getBoolean("Male",true));
         userFemale.setChecked(settings.getBoolean("Female",false));
-        userClass.setText(settings.getString("ClassYear","e.g., 2012"));
-        userMajor.setText(settings.getString("Major","Your major here"));
+        userClass.setText(settings.getString("ClassYear",""));
+        userMajor.setText(settings.getString("Major",""));
 
         if(savedInstanceState != null)
            imageCaptureUri = savedInstanceState.getParcelable(URI_INSTANCE_STATE_KEY);
@@ -133,8 +133,10 @@ public class MainActivity extends Activity {
         }
     }
 
-    public void onSaveButtonClick(View view){
+    public void onSave(View view){
         saveSnap();
+
+        System.out.print("Pressed save button!");
 
         SharedPreferences settings = getSharedPreferences(PREFS_NAME, 0);
         SharedPreferences.Editor editor = settings.edit();
