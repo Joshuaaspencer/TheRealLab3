@@ -141,7 +141,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/profile_button_cancel"
                 android:layout_toRightOf="@id/profile_button_save"
-                android:text="@string/cancel"/>
+                android:text="@string/cancel"
+                android:onClick="leaveApp"/>
         </RelativeLayout>
     </LinearLayout>
 </ScrollView>

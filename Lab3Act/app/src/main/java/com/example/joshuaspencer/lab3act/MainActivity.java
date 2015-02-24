@@ -16,6 +16,7 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Toast;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -134,6 +135,9 @@ public class MainActivity extends Activity {
     }
 
     public void onSave(View view){
+        Toast.makeText(getApplicationContext(), "Saved",
+                Toast.LENGTH_LONG).show();
+
         saveSnap();
 
         System.out.print("Pressed save button!");
@@ -152,6 +156,15 @@ public class MainActivity extends Activity {
         editor.putString("ClassYear",userClass.getText().toString());
         editor.putString("Major",userMajor.getText().toString());
 
+        editor.commit();
+
+    }
+
+    public void leaveApp(){
+        Toast.makeText(getApplicationContext(), "Goodbye",
+                Toast.LENGTH_LONG).show();
+
+        finish();
     }
 
 /**********Private Helpers*************************************************************************/
